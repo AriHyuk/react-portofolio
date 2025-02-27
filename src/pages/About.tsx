@@ -1,5 +1,4 @@
 import { motion, useAnimation, useInView } from "framer-motion";
-import { FaIcons } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import profile from "../assets/about-profile.jpeg";
 import Carousel from "../components/Carousel";
@@ -53,7 +52,7 @@ export default function About() {
 
   const shapeVariants = {
     hidden: { opacity: 0, scale: 0 },
-    visible: (custom) => ({
+    visible: (custom: number) => ({
       opacity: 0.6,
       scale: 1,
       transition: { 

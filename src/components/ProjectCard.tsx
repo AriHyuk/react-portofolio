@@ -9,7 +9,7 @@ type ProjectCardProps = {
   onClick: () => void;
 };
 
-const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
+const ProjectCard = ({ project, onClick }: ProjectCardProps) => {
   if (!project) return null; // Pastikan project ada sebelum render
 
   return (

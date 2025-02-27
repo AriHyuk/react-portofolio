@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { toast } from "react-hot-toast";
-import { FaGithub, FaLinkedin, FaTwitter, FaDribbble, FaInstagram } from "react-icons/fa";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,11 +11,11 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formErrors, setFormErrors] = useState({});
+  const [formErrors, setFormErrors] = useState<{ [key: string]: string | null }>({});
 
   const controls = useAnimation();
   const ref = useRef(null);
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   useEffect(() => {
@@ -26,7 +25,7 @@ export default function Contact() {
   }, [isInView, controls]);
 
   const validateForm = () => {
-    const errors = {};
+    const errors: { [key: string]: string } = {};
     
     if (!formData.name.trim()) {
       errors.name = "Name is required";
@@ -58,7 +57,7 @@ export default function Contact() {
     return Object.keys(errors).length === 0;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     if (name === "budget" && value !== "" && (isNaN(Number(value)) || Number(value) < 0)) return;
     
@@ -70,11 +69,11 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     
     if (!validateForm()) {
-      formRef.current.scrollIntoView({ behavior: 'smooth' });
+      formRef.current?.scrollIntoView({ behavior: 'smooth' });
       return;
     }
     

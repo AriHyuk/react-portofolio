@@ -101,7 +101,9 @@ export default function Navbar() {
         {["hero", "about", "portfolio", "certifity"].map((section) => (
           <div
             key={section}
-            ref={(el) => (navRefs.current[section] = el)}
+            ref={(el) => {
+              navRefs.current[section] = el;
+            }}
             className="relative"
           >
             <Link
@@ -162,7 +164,7 @@ export default function Navbar() {
       </div>
 
       {/* Custom animation keyframes */}
-      <style jsx>{`
+      <style>{`
         @keyframes expandWidth {
           0% { width: 0; transform: translateX(0); }
           50% { width: 100%; transform: translateX(0); }

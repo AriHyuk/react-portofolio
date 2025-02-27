@@ -69,22 +69,6 @@ export default function HeroSection() {
   };
 
   // Social icons animation
-  const socialVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: (custom: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: { 
-        duration: 0.3, 
-        delay: 1.2 + (custom * 0.1) 
-      }
-    }),
-    hover: {
-      y: -5,
-      color: "#3B82F6",
-      transition: { duration: 0.2 }
-    }
-  };
 
   // Button animations
   const buttonVariants = {
@@ -192,6 +176,7 @@ export default function HeroSection() {
           Saya adalah seorang Full-Stack Web Developer yang sedang menempuh
           pendidikan di Universitas Pamulang. Spesialisasi saya mencakup React, Node.js, dan desain UI/UX.
         </motion.p>
+        
 
         {/* Call-to-action buttons */}
         <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
