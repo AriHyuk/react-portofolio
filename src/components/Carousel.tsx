@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import useCarousel from "../hooks/useCarousel";
-import { FaGofore, FaJs, FaLaravel, FaNodeJs, FaReact } from "react-icons/fa";
+import { FaJs, FaLaravel, FaReact } from "react-icons/fa";
 import { SiExpress, SiGo, SiNodedotjs, SiTailwindcss } from "react-icons/si";
 
 const items = [

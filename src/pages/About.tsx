@@ -2,7 +2,6 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import profile from "../assets/about-profile.jpg";
 import Carousel from "../components/Carousel";
-import { useCustomAboutHook } from "../hooks/useAbout";
 import { FaGithub, FaLinkedin, FaTwitter, FaDribbble } from "react-icons/fa";
 import QuoteFetcher from "../components/QuoteFetcher";
 
