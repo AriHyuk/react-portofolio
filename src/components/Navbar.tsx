@@ -47,26 +47,25 @@ export default function Navbar() {
   return (
     <nav className="fixed w-full bg-white dark:bg-gray-900 shadow-md p-4 flex justify-between items-center px-10 z-50">
       {/* Animated Name */}
-      <motion.h1 
-        className="text-xl font-bold dark:text-white"
-        variants={textVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="flex">
-          {nameChars.map((char, index) => (
-            <motion.span 
-              key={`name-${index}`} 
-              variants={letterVariants}
-              className="inline-block"
-              whileHover={{ y: -5, color: "#3B82F6", transition: { duration: 0.2 } }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </div>
-       
-      </motion.h1>
+         <motion.h1 
+      className="text-xl font-bold dark:text-white"
+      variants={textVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <div className="flex group">
+        {nameChars.map((char, index) => (
+          <motion.span 
+            key={`name-${index}`} 
+            variants={letterVariants}
+            className="inline-block transition-transform duration-200 group-hover:text-blue-500 dark:group-hover:text-blue-400"
+            whileHover={{ y: -5 }}
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+      </div>
+    </motion.h1>
 
       {/* Menu & Icons Wrapper */}
       <div className="flex items-center gap-4">

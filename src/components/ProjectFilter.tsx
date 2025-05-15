@@ -1,4 +1,3 @@
-// File: components/ProjectFilters.tsx
 import { motion } from "framer-motion";
 
 type FilterButtonType = {
@@ -13,13 +12,12 @@ type ProjectFiltersProps = {
   setSearchQuery: (query: string) => void;
 };
 
-const ProjectFilters = ({ 
-  activeFilter, 
-  setActiveFilter, 
-  searchQuery, 
-  setSearchQuery 
+const ProjectFilters = ({
+  activeFilter,
+  setActiveFilter,
+  searchQuery,
+  setSearchQuery,
 }: ProjectFiltersProps) => {
-  
   const filterButtons: FilterButtonType[] = [
     { id: "all", label: "All Projects" },
     { id: "web", label: "Web" },
@@ -28,7 +26,7 @@ const ProjectFilters = ({
   ];
 
   return (
-    <motion.div 
+    <motion.div
       className="mb-10 flex flex-col md:flex-row justify-between items-center gap-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
