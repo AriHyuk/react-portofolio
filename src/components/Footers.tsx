@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { FaInstagram, FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaTwitter,  FaLinkedin } from "react-icons/fa";
 
 interface IconProps {
   url: string;
@@ -41,10 +41,9 @@ interface ContactInfo {
 
 const Footer: React.FC = () => {
   const socialMediaIcons: IconProps[] = [
-    { url: "https://instagram.com", name: "Instagram", icon: <FaInstagram className="text-2xl" /> },
-    { url: "https://twitter.com", name: "Twitter", icon: <FaTwitter className="text-2xl" /> },
-    { url: "https://facebook.com", name: "Facebook", icon: <FaFacebook className="text-2xl" /> },
-    { url: "https://linkedin.com", name: "LinkedIn", icon: <FaLinkedin className="text-2xl" /> },
+    { url: "https://www.instagram.com/aariawlll", name: "Instagram", icon: <FaInstagram className="text-2xl" /> },
+    { url: "https://github.com/AriHyuk/react-portofolio", name: "Github", icon: <FaTwitter className="text-2xl" /> },
+    { url: "https://www.linkedin.com/in/ari-awaludin-a58148329/", name: "LinkedIn", icon: <FaLinkedin className="text-2xl" /> },
   ];
 
   const quickLinks: QuickLink[] = [

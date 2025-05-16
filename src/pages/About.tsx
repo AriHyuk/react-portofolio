@@ -2,8 +2,17 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import profile from "../assets/about-profile.jpg";
 import Carousel from "../components/Carousel";
-import { FaGithub, FaLinkedin, FaTwitter, FaDribbble } from "react-icons/fa";
 import QuoteFetcher from "../components/QuoteFetcher";
+import { socialLinks  } from "../Data/socialLinks";
+import { servicesData } from "../Data/ServiceData";
+import { experienceData } from "../Data/ExperienceData";
+import {
+  containerVariants,
+  itemVariants,
+  cardVariants,
+  shapeVariants,
+  tabVariants,
+} from "../Data/variants"; 
 
 export default function About() {
   const [selectedTab, setSelectedTab] = useState("skills");
@@ -17,96 +26,8 @@ export default function About() {
     }
   }, [isInView, controls]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
-      },
-    },
-  };
 
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 100, damping: 12 },
-    },
-    hover: { scale: 1.03, boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.1)" },
-    tap: { scale: 0.98 },
-  };
 
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { type: "spring", stiffness: 100, damping: 12 },
-    },
-    hover: { scale: 1.03, boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.1)" },
-  };
-
-  const shapeVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: (custom: number) => ({
-      opacity: 0.6,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        delay: 0.3 + custom * 0.15,
-      },
-    }),
-  };
-
-  const tabVariants = {
-    inactive: { opacity: 0.6, y: 5 },
-    active: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 20 },
-    },
-  };
-
-  const experienceData = [
-    {
-      period: "2020 - Present",
-      role: "Senior Frontend Developer",
-      company: "Tech Innovations Inc.",
-      description:
-        "Lead development of responsive web applications using React, Next.js, and Tailwind CSS. Implemented state management with Redux and improved site performance by 40%.",
-    },
-    {
-      period: "2018 - 2020",
-      role: "UI/UX Designer",
-      company: "Creative Solutions",
-      description:
-        "Designed user interfaces for mobile and web applications. Created wireframes, prototypes, and conducted user testing to improve user experience.",
-    },
-  ];
-
-  const servicesData = [
-    {
-      title: "Web Development",
-      icon: "💻",
-      desc: "Custom websites built with the latest technologies including React, Next.js, and Tailwind CSS.",
-    },
-    {
-      title: "UI/UX Design",
-      icon: "🎨",
-      desc: "Intuitive and user-friendly interfaces designed with Figma and Adobe XD.",
-    },
-  ];
-
-  const socialLinks = [
-    { icon: <FaGithub />, url: "https://github.com/yourusername" },
-    { icon: <FaLinkedin />, url: "https://linkedin.com/in/yourusername" },
-    { icon: <FaTwitter />, url: "https://twitter.com/yourusername" },
-    { icon: <FaDribbble />, url: "https://dribbble.com/yourusername" },
-  ];
   type Quote = {
   quotes: string;
   author: string;
@@ -181,7 +102,7 @@ const [quote, setQuote] = useState<Quote>({ quotes: "", author: "" });
               </p>
 
               <div className="flex justify-center space-x-4 mb-6">
-                {socialLinks.map((link, index) => (
+                {socialLinks.map((link , index) => (
                   <motion.a
                     key={index}
                     href={link.url}
@@ -264,7 +185,7 @@ const [quote, setQuote] = useState<Quote>({ quotes: "", author: "" });
               </p>
 
               <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                {["React", "Laravel", "Tailwind CSS", "TypeScript"].map(
+                {["MongoDB", "Express", "React", "Node.js"].map(
                   (skill, index) => (
                     <motion.div
                       key={index}

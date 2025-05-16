@@ -21,24 +21,42 @@ export default function Navbar() {
     }
   }, [darkMode]);
 
-  // Variants for text animation
-  const textVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  };
+const textVariants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1], // Lebih smooth dari sebelumnya
+      staggerChildren: 0.05,
+      delayChildren: 0.2,
+    },
+  },
+};
 
-  const letterVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 100 }
-    }
-  };
+const letterVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1], // Menggunakan cubic bezier yang lebih smooth
+    },
+  },
+  hover: {
+    scale: 1.2,
+    color: "#00BFFF",
+    textShadow: "0px 4px 15px rgba(0, 191, 255, 0.7)",
+    transition: {
+      type: "spring",
+      stiffness: 250, 
+      damping: 8,   
+      mass: 0.5,    
+    },
+  },
+};
 
   // Split text into characters for animation
   const nameText = "Ari Hyuk";

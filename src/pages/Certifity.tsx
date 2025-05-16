@@ -44,7 +44,7 @@ export default function Certificate() {
       image: laravelHpc,
       title: "Laravel backend class",
       description: "Certified in React development by Certifity.",
-      alt: "React Certification"
+      alt: "lARAVEL Certification"
     },
     {
       image: UIUX,
@@ -60,21 +60,21 @@ export default function Certificate() {
     },
     {
       image: AIML,
-      title: "Node.js Advanced",
-      description: "Advanced certification in Node.js development.",
-      alt: "Node.js Certificate"
+      title: "AI & ML",
+      description: "Finished the AI & ML class.",
+      alt: "AI & ML Certificate"
     },
     {
       image: backend,
-      title: "Full Stack Developer",
-      description: "Certified in Full Stack Development.",
-      alt: "Full Stack Developer Certificate"
+      title: "Dibimbing Backend Class",
+      description: "Certified in Backend Development.",
+      alt: "Backend Certificate"
     },
     {
       image: ISC,
-      title: "Python for AI",
-      description: "Certification in Python for AI and ML.",
-      alt: "Python for AI Certificate"
+      title: "ISC web development class", 
+      description: "Certified in web development by ISC.",
+      alt: "ISC Certificate"
     },
   ];
 
