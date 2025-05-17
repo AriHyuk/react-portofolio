@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import useCarousel from "../hooks/useCarousel";
 import { FaJs, FaLaravel, FaReact } from "react-icons/fa";
-import { SiExpress, SiGo, SiNodedotjs, SiTailwindcss } from "react-icons/si";
+import { SiExpress, SiGo, SiKotlin, SiNodedotjs, SiTailwindcss, SiTypescript } from "react-icons/si";
 
 const items = [
   {
@@ -17,7 +17,19 @@ const items = [
   {
     icon: FaJs,
     label: "JavaScript",
-    usage: "Programming Language",
+    usage: "Language",
+    bg: "bg-gradient-to-tr from-yellow-200 to-yellow-100",
+  },
+   {
+    icon: SiTypescript,
+    label: "TypeScript",
+    usage: "Language",
+    bg: "bg-gradient-to-tr from-yellow-200 to-yellow-100",
+  },
+     {
+    icon: SiKotlin,
+    label: "Kotlin",
+    usage: "Language",
     bg: "bg-gradient-to-tr from-yellow-200 to-yellow-100",
   },
   {
@@ -92,21 +104,21 @@ export default function Carousel() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 2,
+          slidesToShow: 2,
+          slidesToScroll:2,
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 1,
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
         }
       }
@@ -114,13 +126,13 @@ export default function Carousel() {
   };
 
   return (
-    <div className="relative px-8 py-6">
+<div className="relative px-8 py-6">
 <Slider {...carouselSettings}>
   {items.map((item, index) => (
     <div key={index} className="p-2">
       {/* Kartu Skill */}
       <motion.div
-        className="flex items-center bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 gap-4 hover:shadow-xl transition-all duration-300"
+        className="w-full flex items-center bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 gap-4 hover:shadow-xl transition-all duration-300"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -133,7 +145,6 @@ export default function Carousel() {
           ) : (
             <item.icon className="w-8 h-8 text-gray-800 dark:text-white" />
           )}
-          {/* <img src={item.icon} alt={item.label} className="w-8 h-8" /> */}
         </div>
 
         <div className="flex flex-col">
@@ -148,7 +159,6 @@ export default function Carousel() {
     </div>
   ))}
 </Slider>
-
-    </div>
+</div>
   );
 }

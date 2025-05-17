@@ -11,4 +11,9 @@ export const servicesData = [
       icon: "🎨",
       desc: "Intuitive and user-friendly interfaces designed with Figma and Adobe XD.",
     },
+      {
+      title: "Android Development",
+      icon: "📱",
+      desc: "Native Android applications developed using Kotlin and Java.",
+    },
   ];
