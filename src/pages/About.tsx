@@ -1,6 +1,6 @@
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import profile from "../assets/about-profile.jpg";
+import profile from "../assets/profileimg.jpg";
 import Carousel from "../components/Carousel";
 import QuoteFetcher from "../components/QuoteFetcher";
 import { socialLinks  } from "../Data/socialLinks";

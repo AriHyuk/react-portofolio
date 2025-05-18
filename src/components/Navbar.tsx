@@ -44,18 +44,7 @@ const letterVariants = {
       duration: 0.7,
       ease: [0.22, 1, 0.36, 1], // Menggunakan cubic bezier yang lebih smooth
     },
-  },
-  hover: {
-    scale: 1.2,
-    color: "#00BFFF",
-    textShadow: "0px 4px 15px rgba(0, 191, 255, 0.7)",
-    transition: {
-      type: "spring",
-      stiffness: 250, 
-      damping: 8,   
-      mass: 0.5,    
-    },
-  },
+  }
 };
 
   // Split text into characters for animation
@@ -76,8 +65,8 @@ const letterVariants = {
           <motion.span 
             key={`name-${index}`} 
             variants={letterVariants}
-            className="inline-block transition-transform duration-200 group-hover:text-blue-500 dark:group-hover:text-blue-400"
-            whileHover={{ y: -5 }}
+            className="inline-block transition-transform duration-10 group-hover:text-blue-600 dark:group-hover:text-blue-600"
+            whileHover={{ y: -5, transition :{duration: 0.2 }}}
           >
             {char === " " ? "\u00A0" : char}
           </motion.span>

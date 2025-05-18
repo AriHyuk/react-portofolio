@@ -1,6 +1,6 @@
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
-import profileImage from "../assets/profile.png";
+import profileImage from "../assets/profile_ari.png";
 
 export default function HeroSection() {
   // Text animation variants
@@ -48,10 +48,11 @@ export default function HeroSection() {
       }
     },
     hover: {
-      scale: 1.05,
-      rotate: 2,
-      transition: { duration: 0.3 }
-    }
+    scale: 1.05,
+    rotate: 2,
+    boxShadow: "0px 0px 30px rgba(59,130,246,0.6)", // efek glow biru
+    transition: { duration: 0.3 }
+  }
   };
 
   // Background shape animations
@@ -241,10 +242,15 @@ export default function HeroSection() {
             animate="visible"
             whileHover="hover"
           >
-            <img
+            <motion.img
               src={profileImage}
               alt="Ari Profile"
               className="absolute top-10 w-full h-auto object-cover"
+              whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 25px rgba(59,130,246,0.8)",
+              transition: { duration: 0.3 },
+              }}
             />
             
             {/* Decorative gradient overlay */}
