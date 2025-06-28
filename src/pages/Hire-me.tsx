@@ -73,7 +73,7 @@ export default function Contact() {
 
 const handleSubmit = async (e: { preventDefault: () => void }) => {
   e.preventDefault();
-setSuccessMessage("Thank you! Your meeting request has been received.");
+
 
 
   if (!validateForm()) {
@@ -107,6 +107,7 @@ setSuccessMessage("Thank you! Your meeting request has been received.");
 toast.success("Message sent successfully!");
 setFormData({ name: "", email: "", category: "", budget: "", message: "" });
 setSuccessMessage("Thank you! Your meeting request has been received.");
+setTimeout(() => setSuccessMessage(null), 6000);
 
   } catch (error) {
     toast.error("Something went wrong. Please try again later.");
