@@ -84,7 +84,7 @@ const handleSubmit = async (e: { preventDefault: () => void }) => {
   setIsSubmitting(true);
 
   try {
-    const response = await fetch("https://admin-panel.oktovet.store/api/appointments", {
+    const response = await fetch(`https://admin-panel.oktovet.store/api/appointments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
