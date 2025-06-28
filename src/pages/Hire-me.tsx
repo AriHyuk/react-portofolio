@@ -88,8 +88,7 @@ const handleSubmit = async (e: { preventDefault: () => void }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Tambahkan Authorization kalau pakai Sanctum/Bearer Token
-        // Authorization: `Bearer YOUR_TOKEN_HERE`
+        
       },
       body: JSON.stringify({
         name: formData.name,
