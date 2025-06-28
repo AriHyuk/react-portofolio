@@ -17,6 +17,8 @@ export default function Contact() {
   const ref = useRef(null);
   const formRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
 
   useEffect(() => {
     if (isInView) {
@@ -69,31 +71,51 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      formRef.current?.scrollIntoView({ behavior: 'smooth' });
-      return;
+const handleSubmit = async (e: { preventDefault: () => void }) => {
+  e.preventDefault();
+setSuccessMessage("Thank you! Your meeting request has been received.");
+
+
+  if (!validateForm()) {
+    formRef.current?.scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    const response = await fetch("http://admin-panel.oktovet.store/api/appointments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Tambahkan Authorization kalau pakai Sanctum/Bearer Token
+        // Authorization: `Bearer YOUR_TOKEN_HERE`
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        category: formData.category,
+        budget: formData.budget,
+        details: formData.message
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to send message");
     }
-    
-    setIsSubmitting(true);
-    
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Show success toast
-      toast.success("Message sent successfully! I'll get back to you soon.");
-      
-      // Reset form
-      setFormData({ name: "", email: "", category: "", budget: "", message: "" });
-    } catch (error) {
-      toast.error("Something went wrong. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+
+toast.success("Message sent successfully!");
+setFormData({ name: "", email: "", category: "", budget: "", message: "" });
+setSuccessMessage("Thank you! Your meeting request has been received.");
+
+  } catch (error) {
+    toast.error("Something went wrong. Please try again later.");
+    console.error("Submit error:", error);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -339,6 +361,7 @@ export default function Contact() {
               <motion.button
                 type="submit"
                 className="w-full bg-gradient-to-r from-indigo-600 to-blue-500 text-white px-6 py-4 rounded-lg text-lg font-medium shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                
                 variants={buttonVariants}
                 initial="initial"
                 whileHover={!isSubmitting ? "hover" : "disabled"}
@@ -357,6 +380,12 @@ export default function Contact() {
                   "Request for Meeting"
                 )}
               </motion.button>
+              {successMessage && (
+  <p className="text-green-600 dark:text-green-400 text-center mt-4 font-medium">
+    {successMessage}
+  </p>
+)}
+
               <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
                 Your information is secure and will never be shared with third parties.
               </p>
